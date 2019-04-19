@@ -1,0 +1,86 @@
+# /Users/steve/.config/tmuxinator/voltron.yml
+
+name: voltron
+root: ~/
+
+# Optional tmux socket
+# socket_name: foo
+
+# Runs before everything. Use it to start daemons etc.
+# pre: sudo /etc/rc.d/mysqld start
+
+# Project hooks
+# Runs on project start, always
+# on_project_start: command
+# Run on project start, the first time
+# on_project_first_start: command
+# Run on project start, after the first time
+# on_project_restart: command
+# Run on project exit ( detaching from tmux session )
+# on_project_exit: command
+# Run on project stop
+# on_project_stop: command
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+# pre_window: rbenv shell 2.0.0-p247
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options: -f ~/.tmux.mac.conf
+
+# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# tmux_command: byobu
+
+# Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
+# startup_window: editor
+
+# Specifies (by index) which pane of the specified window will be selected on project startup. If not set, the first pane is used.
+# startup_pane: 1
+
+# Controls whether the tmux session should be attached to automatically. Defaults to true.
+# attach: false
+
+# Runs after everything. Use it to attach to tmux with custom options etc.
+# post: tmux -CC attach -t voltron
+
+#name: voltron
+#root: ~/
+#windows:
+#  # two spaces
+#  - madhax:
+#      # four spaces
+#      layout: 15a8,169x41,0,0{147x41,0,0[147x13,0,0{81x13,0,0,60,65x13,82,0,61},147x19,0,14,62,147x7,0,34{89x7,0,34,63,57x7,90,34,64}],21x41,148,0,65}
+#      panes:
+#        # two spaces
+#        - python -m voltron view disasm
+#        - python -m voltron view bp
+#        - lldb
+#        - python -m voltron view stack
+#        - python -m voltron view bt
+#        - python -m voltron view reg
+#
+#windows:
+#  - lldb_disas:
+#      layout: 4bff,135x38,0,0{62x38,0,0,0,72x38,63,0,1} 
+#      panes:
+#        - lldb $(pwd)
+#        - python -m voltron v d
+#  - voltron:
+#      layout: 8fbc,135x38,0,0[135x24,0,0,9,135x13,0,25{92x13,0,25,8,42x13,93,25,10}]
+#      panes:
+#        - python -m voltron v s
+#        - python -m voltron v r
+#        - python -m voltron v b
+windows:
+  # two spaces
+  - jac0wl:
+      # four spaces
+      layout: bd3a,207x57,0,0{141x57,0,0[141x23,0,0,0,141x22,0,24,2,141x10,0,47,3],65x57,142,0[65x37,142,0,5,65x11,142,38,7,65x7,142,50,6]}
+      panes:
+        # two spaces
+        - python -m voltron view disasm
+        - lldb
+        - python -m voltron view stack
+        - python -m voltron view reg
+        - python -m voltron view bt
+        - python -m voltron view bp
+
