@@ -42,8 +42,8 @@ root: ~/
 # Runs after everything. Use it to attach to tmux with custom options etc.
 # post: tmux -CC attach -t voltron
 
-#name: voltron
-#root: ~/
+# --- meh ----
+#
 #windows:
 #  # two spaces
 #  - madhax:
@@ -58,6 +58,9 @@ root: ~/
 #        - python -m voltron view bt
 #        - python -m voltron view reg
 #
+
+#  --- Simple ----
+#
 #windows:
 #  - lldb_disas:
 #      layout: 4bff,135x38,0,0{62x38,0,0,0,72x38,63,0,1} 
@@ -70,17 +73,50 @@ root: ~/
 #        - python -m voltron v s
 #        - python -m voltron v r
 #        - python -m voltron v b
+
+
+#  --- Cool ----
+#
+#windows:
+#  # two spaces
+#  - Main:
+#      # four spaces
+#      layout: bd3a,207x57,0,0{141x57,0,0[141x23,0,0,0,141x22,0,24,2,141x10,0,47,3],65x57,142,0[65x37,142,0,5,65x11,142,38,7,65x7,142,50,6]}
+#      panes:
+#        # two spaces
+#        - python -m voltron view disasm
+#        - lldb
+#        - python -m voltron view stack
+#        - python -m voltron view reg
+#        - python -m voltron view bt
+#        - python -m voltron view bp
+#
+
+
+#  --- Best ----
+#
 windows:
   # two spaces
-  - jac0wl:
+  - Main:
       # four spaces
-      layout: bd3a,207x57,0,0{141x57,0,0[141x23,0,0,0,141x22,0,24,2,141x10,0,47,3],65x57,142,0[65x37,142,0,5,65x11,142,38,7,65x7,142,50,6]}
+      layout: d603,207x57,0,0[207x28,0,0{115x28,0,0,0,57x28,116,0[57x14,116,0,6,57x13,116,15,11],33x28,174,0,10},207x13,0,29,1,207x14,0,43,2]
       panes:
         # two spaces
         - python -m voltron view disasm
-        - lldb
-        - python -m voltron view stack
-        - python -m voltron view reg
         - python -m voltron view bt
         - python -m voltron view bp
+        - python -m voltron view reg
+        - bash
+        - python -m voltron view stack
+  - Helper:
+      layout: 6634,207x57,0,0[207x10,0,0,12,207x46,0,11,13] 
+      panes:
+        - python -m voltron view command "frame variable" --lexer c
+        - python -m voltron view command 'source list -a $rip -c 25' --lexer c
 
+# --- Tips ----
+# $tmuxinator new voltron
+# $cp voltron.yml ~/.config/tmuxinator/
+# $echo "alias voltron='tmuxinator start voltron'" >> ~/.profile
+# $source ~/.profile
+# $voltron
