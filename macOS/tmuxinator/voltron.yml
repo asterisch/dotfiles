@@ -112,7 +112,7 @@ windows:
       layout: 6634,207x57,0,0[207x10,0,0,12,207x46,0,11,13] 
       panes:
         - python -m voltron view command "frame variable" --lexer c
-        - python -m voltron view command 'source list -a $rip -c 25' --lexer c
+        - python -m voltron view command 'source list -a $rip -c 70' --lexer c
 
 # --- Tips ----
 # $tmuxinator new voltron
