@@ -17,6 +17,12 @@ cd fonts
 
 ./install.sh
 
+## oh my zsh 
+
+Variations of themes for the configured colors of mine.
+
 ## Source
 
+https://zshthem.es/all/
 https://www.freecodecamp.org/news/how-to-configure-your-macos-terminal-with-zsh-like-a-pro-c0ab3f3c1156/
+https://www.freecodecamp.org/news/jazz-up-your-zsh-terminal-in-seven-steps-a-visual-guide-e81a8fd59a38/
