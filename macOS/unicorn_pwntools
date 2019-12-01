@@ -1,0 +1,122 @@
+echo \
+'==============================================================================
+|
+|		python@2 is default on MacOS (at least until Mojave) 
+|		Installing python3..
+|
+=============================================================================='
+
+brew install python #this will install python3
+
+echo \
+'==============================================================================
+|
+|		Installing dependencies et al: gcc, gdb, llvm, capstone, keystone, unicorn  
+|
+=============================================================================='
+
+brew install llvm
+brew install gcc gdb
+brew install unicorn capstone keystone
+
+echo \
+'==============================================================================
+|
+|		Install python 2 bindings for dependencies: capstone, keystone
+|
+=============================================================================='
+
+pip install --user capstone keystone
+
+echo \
+'==============================================================================
+|
+|		Install python 3 bindings for dependencies: capstone, keystone
+|
+=============================================================================='
+pip3 install --user capstone keystone
+
+# Unicorn stuff
+echo \
+'==============================================================================
+|
+|		Building unicorn from source: https://github.com/unicorn-engine/unicorn
+|
+=============================================================================='
+cd /tmp
+git clone --recursive https://github.com/unicorn-engine/unicorn
+cd unicorn
+./make.sh
+sudo make install
+
+echo \
+'==============================================================================
+|
+|		Running samples to check the correct installation of unicorn
+|
+=============================================================================='
+./samples/sample_all.sh
+
+cd bindings/python
+echo \
+'==============================================================================
+|
+|		Installing python 2 bindings for unicorn
+|
+=============================================================================='
+
+sudo python setup.py install
+
+echo \
+'==============================================================================
+|
+|		Installing python 3 bindings for unicorn
+|
+=============================================================================='
+
+sudo python3 setup.py install
+
+echo \
+'==============================================================================
+|
+|		Running samples for python 2 bindings
+|
+=============================================================================='
+# Taken from: sample_all.sh
+
+python sample_x86.py
+echo ==========================
+python shellcode.py
+echo ==========================
+python sample_arm.py
+echo ==========================
+python sample_arm64.py
+echo ==========================
+python sample_mips.py
+echo ==========================
+python sample_sparc.py
+echo ==========================
+python sample_m68k.py
+
+
+echo \
+'==============================================================================
+|
+|		Running samples for python 3 bindings
+|
+=============================================================================='
+# Taken from: sample_all.sh
+
+python3 sample_x86.py
+echo ==========================
+python3 shellcode.py
+echo ==========================
+python3 sample_arm.py
+echo ==========================
+python3 sample_arm64.py
+echo ==========================
+python3 sample_mips.py
+echo ==========================
+python sample_sparc.py
+echo ==========================
+python sample_m68k.py
