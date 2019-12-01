@@ -11,44 +11,63 @@ brew install python #this will install python3
 echo \
 '==============================================================================
 |
-|		Installing dependencies et al: gcc, gdb, llvm, capstone, keystone, unicorn  
+|	Installing dependencies et al: gcc, gdb, llvm, cmake, capstone, unicorn  
 |
 =============================================================================='
 
 brew install openssl
 brew install llvm
 brew install gcc gdb
-brew install unicorn capstone keystone
+brew install cmake 
+brew install unicorn capstone 
+export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
+export CC=gcc; 
 
-export LDFLAGS="-L/usr/local/opt/openssl@*/lib"
-export CPPFLAGS="-I/usr/local/opt/openssl@*/include"
-export CC=gcc;
 
 echo \
 '==============================================================================
 |
-|		Install python 2 bindings for dependencies: capstone, keystone
+|	Installing keystone and its python 2 & 3  bindings 
+|	  from source: https://github.com/keystone-engine/keystone
 |
 =============================================================================='
 
-pip install --user keystone
+cd /tmp/
+git clone --recursive https://github.com/keystone-engine/keystone
+cd keystone
+mkdir build
+cd build
+../make-share.sh
+sudo make install
+cd ../bindings/python
+make
+sudo make install
+sudo make install3
+
+echo \
+'==============================================================================
+|
+|		Install python 2 bindings for dependencies: capstone 
+|
+=============================================================================='
+
 pip install --user capstone
 
 echo \
 '==============================================================================
 |
-|		Install python 3 bindings for dependencies: capstone, keystone
+|		Install python 3 bindings for dependencies: capstone 
 |
 =============================================================================='
 
-pip3 install --user keystone
 pip3 install --user capstone
 
 # Unicorn stuff
 echo \
 '==============================================================================
 |
-|		Building unicorn from source: https://github.com/unicorn-engine/unicorn
+|		Installing unicorn from source: https://github.com/unicorn-engine/unicorn
 |
 =============================================================================='
 cd /tmp
@@ -128,3 +147,21 @@ echo ==========================
 python sample_sparc.py
 echo ==========================
 python sample_m68k.py
+
+echo \
+'Other useful RE tools you should consider:
+- IDA Pro (https://www.hex-rays.com/)
+- Radare2 + Cutter (https://rada.re/n/)
+	brew install radare2
+	brew cask install cutter
+- ghidra (https://ghidra-sre.org/)
+- angr (https://docs.angr.io/introductory-errata/install)
+	pip3 install angr 
+- cemu (https://github.com/hugsy/cemu.git)
+	pip3 install cemu
+
+- IDA plugins
+ - idaref (https://github.com/nologic/idaref)
+ - keypatch (http://www.keystone-engine.org/keypatch/)
+
+'
