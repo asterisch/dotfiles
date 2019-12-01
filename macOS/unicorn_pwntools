@@ -15,9 +15,14 @@ echo \
 |
 =============================================================================='
 
+brew install openssl
 brew install llvm
 brew install gcc gdb
 brew install unicorn capstone keystone
+
+export LDFLAGS="-L/usr/local/opt/openssl@*/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl@*/include"
+export CC=gcc;
 
 echo \
 '==============================================================================
@@ -26,7 +31,8 @@ echo \
 |
 =============================================================================='
 
-pip install --user capstone keystone
+pip install --user keystone
+pip install --user capstone
 
 echo \
 '==============================================================================
@@ -34,7 +40,9 @@ echo \
 |		Install python 3 bindings for dependencies: capstone, keystone
 |
 =============================================================================='
-pip3 install --user capstone keystone
+
+pip3 install --user keystone
+pip3 install --user capstone
 
 # Unicorn stuff
 echo \
