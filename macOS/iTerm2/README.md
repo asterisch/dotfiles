@@ -20,6 +20,9 @@ cd fonts
 ## oh my zsh 
 
 Variations of themes for the configured colors of mine.
+```
+cp -r Themes ~/.oh-my-zsh/themes/
+```
 
 ## Source
 
