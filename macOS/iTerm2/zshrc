@@ -133,3 +133,5 @@ export PATH=$PATH:/Users/steve/Library/Python/3.8/bin:~/bin/
 alias ida="/Applications/IDA\ Pro\ 7.6/ida.app/Contents/MacOS/ida64"
 alias ida64="/Applications/IDA\ Pro\ 7.6/ida.app/Contents/MacOS/ida64"
 alias subl="/Applications/Sublime\ Text.app/Contents/MacOS/sublime_text"
+alias yt-dlp-mp3='yt-dlp --add-metadata --xattrs --embed-thumbnail -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0'
+alias yt-dlp-mp4="yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4'"
