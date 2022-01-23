@@ -1,0 +1,9 @@
+{
+	// https://raw.githubusercontent.com/sindresorhus/github-markdown-css/main/github-markdown-dark.css
+	"css": {
+		"markdown": ["~/Library/Application Support/Sublime Text/github-markdown-dark.css"]
+	},
+	"parser": "markdown",
+	"enabled_parsers": ["markdown"],
+	//"gitlab_highlight_theme": "solarized-dark"
+}
