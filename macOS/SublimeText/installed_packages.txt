@@ -1,6 +1,5 @@
 [
     "CopyWithLineNumbersReloaded",
-    "MarkdownPreview",
     "Package Control",
     "TabsExtra",
 ]
