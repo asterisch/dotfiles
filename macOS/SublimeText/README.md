@@ -29,8 +29,8 @@ cp github-markdown-dark.css ~/Library/Application\ Support/Sublime\ Text/
 ```
 
 ### Note
-*DO NOT INSTALL*: `MarkdownPreview` from github.com/facelessuser MarkdownPreview
-The plugin BY DEFAULT uses github/gitlab API to convert your
-markdown to html which means that it uploads your markdown online!!
-My settings above just ensure offline rendering in case you
-accidentally install it...
+*DO NOT INSTALL*: `MarkdownPreview` from github.com/facelessuser.   
+The plugin BY DEFAULT uses github/gitlab API to convert your  
+markdown to html which means that it uploads your markdown online!!  
+My settings above just ensure offline rendering in case you  
+accidentally install it...  
